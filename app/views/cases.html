@@ -1,1 +1,13 @@
 <button class="btn btn-primary" ng-click="getAllCases()">Get All Cases</button>
+<ul>
+  <li ng-repeat="case in allCases">id: {{case.id}}, {{case.area}}, {{case.text}}</li>
+</ul>
+
+<button ng-click="addCase()">Add case</button>
+<div class="new-case-form" ng-model="newCse" ng-init="newCase.status = 'open'">
+  <label>area</label>
+  <input ng-model="newCase.area">
+  <br>
+  <label>text</label>
+  <textarea type="text" ng-model="newCase.text"></textarea>
+</div>

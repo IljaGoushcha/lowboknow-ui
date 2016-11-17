@@ -48,7 +48,7 @@
 
     <div class="container">
       <h1>{{currentPage}}</h1>
-      <div ng-show="currentPage == 'Home'" ng-include="'views/main.html'"></div>
+      <div ng-show="currentPage == 'Home'" ng-include="'views/main.html'" ng-controller="UsersCtrl as usersCtrl"></div>
       <div ng-show="currentPage == 'Cases'" ng-include="'views/cases.html'"></div>
     </div>
 
@@ -85,6 +85,16 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/app-modules.js"></script>
+
+        <!-- Services -->
+        <script src="scripts/services/auth-service.js"></script>
+        <script src="scripts/services/registration-service.js"></script>
+
+        <!-- Users -->
+        <script src="scripts/users/users-module.js"></script>
+        <script src="scripts/users/users-ctrl.js"></script>
+
         <script src="scripts/controllers/main.js"></script>
         <!-- endbuild -->
 </body>
