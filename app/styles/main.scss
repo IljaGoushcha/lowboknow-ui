@@ -3,6 +3,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "../styles/home";
+@import "../styles/login";
+@import "../styles/registration";
+@import "../styles/client";
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -68,26 +73,11 @@ body {
 }
 
 
-.outer-div {
+.main-outer-div {
   border: 1px solid red;
-  width: 80%;
-  height: 300px;
-  margin: 0 auto 0 auto;
-
-  .register-div {
-  border: 1px solid blue;
-  width: 50%;
-  height: 90%;
-  float: left;
-  }
-
-  .login-div {
-    border: 1px solid blue;
-    width: 50%;
-    height: 90%;
-    float: right;
-  }
-
+  width: 100%;
+  height: 800px;
+  margin: 0;
 }
 
 /* Responsive: Portrait tablets and up */

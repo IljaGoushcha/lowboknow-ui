@@ -4,9 +4,9 @@
 'use strict';
 
 /**
- * Users module of the application.
+ * Clients module of the application.
  */
 angular
-  .module('usersModule', [
+  .module('clientModule', [
 
   ]);

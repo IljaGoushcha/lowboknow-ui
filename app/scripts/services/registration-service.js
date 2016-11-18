@@ -11,7 +11,6 @@ angular.module('lowboknowUiOneApp').factory('RegistrationService', ['$http', fun
   return {
     register: function(user) {
       console.log('inside register()');
-      console.log(user);
 
       var data = user;
       var config = {};

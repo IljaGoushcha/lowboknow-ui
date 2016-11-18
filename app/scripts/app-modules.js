@@ -6,5 +6,7 @@
  */
 angular
   .module('appModules', [
-    'usersModule'
+    'userModule',
+    'clientModule',
+    'servicesModule'
   ]);
