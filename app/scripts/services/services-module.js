@@ -4,9 +4,7 @@
 'use strict';
 
 /**
- * Users module of the application.
+ * Services module of the application.
  */
 angular
-  .module('servicesModule', [
-
-  ]);
+  .module('servicesModule', []);

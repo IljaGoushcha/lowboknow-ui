@@ -28,7 +28,7 @@
       <div class="form-group">
         <label for="zipcode" class="col-sm-3 control-label">Zipcode</label>
         <div class="col-sm-9">
-          <input type="zipcode" id="zipcode" class="form-control" ng-model="userCtrl.newUser.zipcode">
+          <input type="zipcode" id="zipcode" placeholder="Zipcode" class="form-control" ng-model="userCtrl.newUser.zipcode">
         </div>
       </div>
 
@@ -43,21 +43,21 @@
         <label class="control-label col-sm-3">Type</label>
         <div class="col-sm-6">
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-10">
               <div class="radio">
                 <label><input type="radio" name="optradio" ng-checked="userCtrl.newUser.type == 'client'">Client</label>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-10">
               <div class="radio">
                 <label><input type="radio" name="optradio" ng-checked="userCtrl.newUser.type == 'young-attorney'">Young Attorney</label>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-10">
               <div class="radio">
                 <label><input type="radio" name="optradio" ng-checked="userCtrl.newUser.type == 'experienced-attorney'">Experienced Attorney</label>
               </div>

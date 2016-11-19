@@ -8,5 +8,7 @@ angular
   .module('appModules', [
     'userModule',
     'clientModule',
-    'servicesModule'
+    'servicesModule',
+    'directivesModule',
+    'mailchimpModule'
   ]);

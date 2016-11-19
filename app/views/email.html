@@ -1,0 +1,32 @@
+<div class="email-outer-div">
+
+  <h3>email partial</h3>
+
+
+  <!--<form name="MailchimpSubscriptionForm">-->
+    <!--<div ng-hide="mailchimp.result === 'success'">-->
+      <!--<input class="hidden" type="hidden" ng-model="mailchimp.username" ng-init="mailchimp.username='iljagou'">-->
+      <!--<input class="hidden" type="hidden" ng-model="mailchimp.dc" ng-init="mailchimp.dc='us14'">-->
+      <!--<input class="hidden" type="hidden" ng-model="mailchimp.u" ng-init="mailchimp.u='d4e1f5fc90c1926c1435f112e&amp'">-->
+      <!--<input class="hidden" type="hidden" ng-model="mailchimp.id" ng-init="mailchimp.id='c311dfb4c6'">-->
+      <!--<input type="text" name="fname" ng-model="mailchimp.FNAME" placeholder="First name">-->
+      <!--<input type="text" name="lname" ng-model="mailchimp.LNAME" placeholder="Last name">-->
+      <!--<input type="email" name="email" ng-model="mailchimp.EMAIL" placeholder="Email address" required>-->
+      <!--<button ng-disabled="MailchimpSubscriptionForm.$invalid" ng-click="addSubscription(mailchimp)">Join</button>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; Show error message if MailChimp unsuccessfully added the email to the list. &ndash;&gt;-->
+    <!--<div ng-show="mailchimp.result === 'error'" ng-cloak>-->
+      <!--<span ng-bind-html="mailchimp.errorMessage"></span>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; Show success message if MailChimp returned successfully. &ndash;&gt;-->
+    <!--<div ng-show="mailchimp.result === 'success'" ng-cloak>-->
+      <!--<span ng-bind-html="mailchimp.successMessage"></span>-->
+    <!--</div>-->
+  <!--</form>-->
+
+
+  <button ng-click="mailchimpCtrl.createList()">Create List in Mailchimp</button>
+
+</div>

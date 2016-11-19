@@ -7,6 +7,4 @@
  * Clients module of the application.
  */
 angular
-  .module('clientModule', [
-
-  ]);
+  .module('clientModule', []);

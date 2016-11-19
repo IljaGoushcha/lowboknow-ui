@@ -20,7 +20,11 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="main-outer-div">
+    <div class="main-outer-div" height-setter offset="0" min-height="300">
+      <div class="main-header">
+        <div class="app-logo"><span>probo</span><span>know</span></div>
+        <div class="app-user-info"></div>
+      </div>
       <div ui-view></div>
     </div>
 
@@ -47,6 +51,7 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-mailchimp/angular-mailchimp.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -61,6 +66,10 @@
         <script src="scripts/services/auth-service.js"></script>
         <script src="scripts/services/registration-service.js"></script>
 
+        <!-- Directives -->
+        <script src="scripts/directives/directives-module.js"></script>
+        <script src="scripts/directives/height-setter.js"></script>
+
         <!-- Users -->
         <script src="scripts/user/user-module.js"></script>
         <script src="scripts/user/user-ctrl.js"></script>
@@ -69,6 +78,13 @@
         <script src="scripts/client/client-module.js"></script>
         <script src="scripts/client/client-ctrl.js"></script>
 
+        <!-- Header -->
+        <script src="scripts/header/header-module.js"></script>
+        <script src="scripts/header/header-ctrl.js"></script>
+
+        <!-- Mailchimp -->
+        <script src="scripts/mailchimp/mailchimp-module.js"></script>
+        <script src="scripts/mailchimp/mailchimp-ctrl.js"></script>
         <!-- endbuild -->
 </body>
 </html>

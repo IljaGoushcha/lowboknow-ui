@@ -34,11 +34,17 @@ angular
         controllerAs: 'userCtrl'
       })
       .state('client', {
-      url: '/client',
-      templateUrl: '../views/client.html',
-      controller: 'ClientCtrl',
-      controllerAs: 'clientCtrl'
-    });
+        url: '/client',
+        templateUrl: '../views/client.html',
+        controller: 'ClientCtrl',
+        controllerAs: 'clientCtrl'
+      })
+      .state('email', {
+        url: '/email',
+        templateUrl: '../views/email.html',
+        controller: 'MailchimpCtrl',
+        controllerAs: 'mailchimpCtrl'
+      });
 
 
 

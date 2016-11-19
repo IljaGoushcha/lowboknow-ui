@@ -16,5 +16,6 @@ angular
     'ngSanitize',
     'ngTouch',
     'appModules',
-    'ui.router'
+    'ui.router',
+    'mailchimp'
   ]);
