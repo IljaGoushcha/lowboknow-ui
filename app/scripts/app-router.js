@@ -30,8 +30,8 @@ angular
       .state('registration', {
         url: '/registration',
         templateUrl: '../views/registration.html',
-        controller: 'UserCtrl',
-        controllerAs: 'userCtrl'
+        controller: 'RegistrationCtrl',
+        controllerAs: 'registrationCtrl'
       })
       .state('client', {
         url: '/client',

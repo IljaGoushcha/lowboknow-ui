@@ -10,5 +10,5 @@ angular
     'clientModule',
     'servicesModule',
     'directivesModule',
-    'mailchimpModule'
+    'registrationModule'
   ]);
