@@ -29,7 +29,7 @@ angular
       })
       .state('registration', {
         url: '/registration',
-        templateUrl: '../views/registration.html',
+        templateUrl: '../views/registration/registration.html',
         controller: 'RegistrationCtrl',
         controllerAs: 'registrationCtrl'
       })
