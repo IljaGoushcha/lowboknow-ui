@@ -12,9 +12,11 @@ angular.module('registrationModule')
     'AuthService',
     'RegistrationService',
     '$location',
+    '$state',
     function (AuthService,
               RegistrationService,
-              $location) {
+              $location,
+              $state) {
 
 
       var vm = this;
@@ -24,6 +26,7 @@ angular.module('registrationModule')
 
       vm.onLoad = function() {
         console.log('RegistrationCtrl inside onLoad()');
+        $state.transitionTo('registration.one');
         var myParams = $location.search();
         if (myParams.type && myParams.type === 'client') {
           console.log('looks like we got a client');
@@ -55,10 +58,11 @@ angular.module('registrationModule')
 
       vm.goToStep = function(step) {
         console.log('go to step: ' + step);
-        if (step < 4) {
-          vm.currentStep = step++;
-        } else {
-          console.log('step is out of range');
+        try {
+          $state.transitionTo('registration.' + step);
+        }
+        catch (e) {
+          console.log(e);
         }
       };
 
