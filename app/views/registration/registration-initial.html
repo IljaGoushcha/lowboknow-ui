@@ -30,27 +30,28 @@
       </div>
     </div>
 
+    <!--newAppUser.userTypeId are foreign keys relating user to type, defined in UserType table -->
     <div class="form-group">
       <label class="control-label col-sm-3">Type</label>
       <div class="col-sm-6">
         <div class="row">
           <div class="col-sm-10">
-            <div class="radio" ng-mousedown="registrationCtrl.newUserType.value = 'client'">
-              <label><input type="radio" name="optusertype" ng-checked="registrationCtrl.newUserType.value == 'client'">Client</label>
+            <div class="radio" ng-mousedown="registrationCtrl.newAppUser.userTypeId = 2">
+              <label><input type="radio" name="optusertype" ng-checked="registrationCtrl.newAppUser.userTypeId == 2">Client</label>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-10">
-            <div class="radio" ng-mousedown="registrationCtrl.newUserType.value = 'newAttorney'">
-              <label><input type="radio" name="optusertype" ng-checked="registrationCtrl.newUserType.value == 'newAttorney'">New Attorney</label>
+            <div class="radio" ng-mousedown="registrationCtrl.newAppUser.userTypeId = 3">
+              <label><input type="radio" name="optusertype" ng-checked="registrationCtrl.newAppUser.userTypeId == 3">New Attorney</label>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-10">
-            <div class="radio" ng-mousedown="registrationCtrl.newUserType.value = 'experiencedAttorney'">
-              <label><input type="radio" name="optusertype" ng-checked="registrationCtrl.newUserType.value == 'experiencedAttorney'">Experienced Attorney</label>
+            <div class="radio" ng-mousedown="registrationCtrl.newAppUser.userTypeId = 4">
+              <label><input type="radio" name="optusertype" ng-checked="registrationCtrl.newAppUser.userTypeId == 4">Experienced Attorney</label>
             </div>
           </div>
         </div>

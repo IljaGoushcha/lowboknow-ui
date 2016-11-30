@@ -14,39 +14,47 @@ angular.module('registrationModule')
     '$location',
     '$state',
     'vcRecaptchaService',
+    'AreasOfLawService',
     function (AuthService,
               RegistrationService,
               $location,
               $state,
-              vcRecaptchaService) {
+              vcRecaptchaService,
+              AreasOfLawService) {
 
 
       var vm = this;
       vm.newAppUser = {};
       vm.newAddress = {};
-      vm.newUserType = {};
       vm.newQuestionnaire = {};
       vm.vistiorType = 'general';
       vm.recaptchaKey = '6LcLWg0UAAAAAObm56SvUAW7BEfIgzmxryjWg2WN';
       vm.recaptchaId = '';
+      vm.areasOfLaw = [];
 
       vm.onLoad = function() {
         console.log('RegistrationCtrl inside onLoad()');
         var myParams = $location.search();
+        AreasOfLawService.getAreasOfLaw(function(response) {
+          angular.copy(response.data, vm.areasOfLaw);
+          console.log(vm.areasOfLaw);
+        }, function(error) {
+          console.log(error);
+        });
         $state.transitionTo('registration.initial');
         console.log(myParams);
         if (myParams.type && myParams.type === 'client') {
           console.log('looks like we got a client');
-          vm.newUserType.value = 'client';
+          vm.newAppUser.userTypeId = 2;
         } else if (myParams.type && myParams.type === 'newAttorney') {
           console.log('looks like we got a newAttorney');
-          vm.newUserType.value = 'newAttorney';
+          vm.newAppUser.userTypeId = 3;
         } else if (myParams.type && myParams.type === 'experiencedAttorney') {
           console.log('looks like we got an experiencedAttorney');
-          vm.newUserType.value = 'experiencedAttorney';
+          vm.newAppUser.userTypeId = 4;
         } else {
           console.log('looks like we got a general visitor');
-          vm.newUserType.value = 'client';
+          vm.newAppUser.userTypeId = 2;
         }
       };
 
@@ -74,7 +82,7 @@ angular.module('registrationModule')
 
         switch(currentStep) {
           case 'initial':
-            if (vm.newUserType.value === 'client') {
+            if (vm.newAppUser.userTypeId === 2) {
               nextStep = 'income';
             } else {
               nextStep = 'bar';
@@ -93,7 +101,6 @@ angular.module('registrationModule')
 
         console.log('AppUser: ', vm.newAppUser);
         console.log('Address: ', vm.newAddress);
-        console.log('UserType', vm.newUserType);
         console.log('Questionnaire', vm.newQuestionnaire);
         console.log('go to step: ' + nextStep);
 

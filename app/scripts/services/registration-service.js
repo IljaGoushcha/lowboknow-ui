@@ -6,7 +6,7 @@
  */
 'use strict';
 
-angular.module('lowboknowUiOneApp').factory('RegistrationService', ['$http', function($http) {
+angular.module('servicesModule').factory('RegistrationService', ['$http', function($http) {
 
   return {
     register: function(user) {

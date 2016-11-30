@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('lowboknowUiOneApp').factory('AuthService', ['$http', function($http) {
+angular.module('servicesModule').factory('AuthService', ['$http', function($http) {
   var currentUser;
   var authenticationToken;
   var setAuthenticationToken = function(token) {
