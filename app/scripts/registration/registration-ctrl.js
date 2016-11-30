@@ -20,26 +20,30 @@ angular.module('registrationModule')
 
 
       var vm = this;
-      vm.newUser = {};
+      vm.newAppUser = {};
+      vm.newAddress = {};
+      vm.newUserType = {};
       vm.vistiorType = 'general';
-      vm.currentStep = 1;
+      vm.recaptchaKey = '6LcLWg0UAAAAAObm56SvUAW7BEfIgzmxryjWg2WN';
+      vm.recaptchaId = 'someid';
 
       vm.onLoad = function() {
         console.log('RegistrationCtrl inside onLoad()');
-        $state.transitionTo('registration.one');
         var myParams = $location.search();
+        $state.transitionTo('registration.initial');
+        console.log(myParams);
         if (myParams.type && myParams.type === 'client') {
           console.log('looks like we got a client');
-          vm.newUser.type = 'client';
-        } else if (myParams.type && myParams.type === 'young-attorney') {
-          console.log('looks like we got a young-attorney');
-          vm.newUser.type = 'young-attorney';
-        } else if (myParams.type && myParams.type === 'experienced-attorney') {
-          console.log('looks like we got an experienced-attorney');
-          vm.newUser.type = 'experienced-attorney';
+          vm.newUserType.value = 'client';
+        } else if (myParams.type && myParams.type === 'newAttorney') {
+          console.log('looks like we got a newAttorney');
+          vm.newUserType.value = 'newAttorney';
+        } else if (myParams.type && myParams.type === 'experiencedAttorney') {
+          console.log('looks like we got an experiencedAttorney');
+          vm.newUserType.value = 'experiencedAttorney';
         } else {
           console.log('looks like we got a general visitor');
-          vm.newUser.type = 'client';
+          vm.newUserType.value = 'client';
         }
       };
 
@@ -56,10 +60,36 @@ angular.module('registrationModule')
         RegistrationService.register(user);
       };
 
-      vm.goToStep = function(step) {
-        console.log('go to step: ' + step);
+      // Need to think of better mechanism for navigation decisions
+      vm.goToStep = function(currentStep) {
+        var nextStep = '';
+
+        switch(currentStep) {
+          case 'initial':
+            if (vm.newUserType.value === 'client') {
+              nextStep = 'income';
+            } else {
+              nextStep = 'bar';
+            }
+            break;
+          case 'income':
+            nextStep = 'full';
+            break;
+          case 'bar':
+            nextStep = 'full';
+            break;
+          default:
+            console.log('could not find proper next step');
+        }
+
+        console.log('AppUser: ', vm.newAppUser);
+        console.log('Address: ', vm.newAddress);
+        console.log('UserType', vm.newUserType);
+        console.log('go to step: ' + nextStep);
+
+
         try {
-          $state.transitionTo('registration.' + step);
+          $state.transitionTo('registration.' + nextStep);
         }
         catch (e) {
           console.log(e);

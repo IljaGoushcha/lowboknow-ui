@@ -1,0 +1,45 @@
+<div class="container">
+  <form class="form-horizontal" role="form">
+    <h2>Registration</h2>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3">CA Bar, good standing?</label>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="radio" ng-mousedown="registrationCtrl.newAppUser.isBarGoodStanding = true">
+              <label><input type="radio" name="optbarstanding" ng-checked="registrationCtrl.newUserType.value == 'client'">Client</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="radio" ng-mousedown="registrationCtrl.newAppUser.isBarGoodStanding = false">
+              <label><input type="radio" name="optbarstanding" ng-checked="registrationCtrl.newUserType.value == 'newAttorney'">New Attorney</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="barNumber" class="col-sm-3 control-label">Bar Number</label>
+      <div class="col-sm-9">
+        <input type="text" id="barNumber" placeholder="Bar Number" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.barNumber">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="barYear" class="col-sm-3 control-label">Bar Year</label>
+      <div class="col-sm-9">
+        <input type="year" id="barYear" placeholder="Bar Year" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.barYear">
+      </div>
+    </div><!-- /.form-group -->
+
+    <div class="form-group">
+      <div class="col-sm-9 col-sm-offset-3">
+        <button type="submit" class="btn btn-primary btn-block" ng-click="registrationCtrl.goToStep('bar')">Register</button>
+      </div>
+    </div>
+  </form> <!-- /form -->
+</div> <!-- ./container -->

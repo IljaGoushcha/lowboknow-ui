@@ -1,0 +1,146 @@
+<div class="container">
+  <form class="form-horizontal" role="form">
+    <h2>Registration</h2>
+
+    <div class="form-group">
+      <label for="firstName" class="col-sm-3 control-label">First name</label>
+      <div class="col-sm-9">
+        <input type="text" id="firstName" placeholder="First name" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.firstName">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName" class="col-sm-3 control-label">Last name</label>
+      <div class="col-sm-9">
+        <input type="text" id="lastName" placeholder="Last name" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.lastName">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="birthday" class="col-sm-3 control-label">Birthday</label>
+      <div class="col-sm-9">
+        <input type="date" id="birthday" placeholder="Birthday" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.birthday">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3">Gender</label>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="radio" ng-mousedown="registrationCtrl.newAppUser.gender = 'male'">
+              <label><input type="radio" name="optgender">Male</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="radio" ng-mousedown="registrationCtrl.newAppUser.gender = 'female'">
+              <label><input type="radio" name="optgender">Female</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="primaryLanguage" class="col-sm-3 control-label">1st language</label>
+      <div class="col-sm-9">
+        <input type="text" id="primaryLanguage" placeholder="Primary language" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.primaryLanguage">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="secondaryLanguage" class="col-sm-3 control-label">2nd language</label>
+      <div class="col-sm-9">
+        <input type="text" id="secondaryLanguage" placeholder="Secondary language" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.secondaryLanguage">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address" class="col-sm-3 control-label">Address</label>
+      <div class="col-sm-9">
+        <input type="text" id="address" placeholder="Address" class="form-control" autofocus ng-model="registrationCtrl.newAddress.lineOne">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="city" class="col-sm-3 control-label">City</label>
+      <div class="col-sm-9">
+        <input type="text" id="city" placeholder="City" class="form-control" autofocus ng-model="registrationCtrl.newAddress.city">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="state" class="col-sm-3 control-label">State</label>
+      <div class="col-sm-9">
+        <input type="text" id="state" placeholder="State" class="form-control" autofocus ng-model="registrationCtrl.newAddress.state">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="zipcode" class="col-sm-3 control-label">Zip Code</label>
+      <div class="col-sm-9">
+        <input type="text" id="zipcode" placeholder="Zip Code" class="form-control" autofocus ng-model="registrationCtrl.newAddress.zipCode">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phonenumber" class="col-sm-3 control-label">Phone Number</label>
+      <div class="col-sm-9">
+        <input type="text" id="phonenumber" placeholder="Phone Number" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.phoneNumber">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="col-sm-3 control-label">Email</label>
+      <div class="col-sm-9">
+        <input type="text" id="email" placeholder="Email" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.email">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="username" class="col-sm-3 control-label">Username</label>
+      <div class="col-sm-9">
+        <input type="text" id="username" placeholder="Username" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.username">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="col-sm-3 control-label">Password</label>
+      <div class="col-sm-9">
+        <input type="password" id="password" placeholder="Password" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.password">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-9">
+        <no-captcha
+          g-recaptcha-response="gRecaptchaResponse"
+          theme='light'
+          control="noCaptchaControl"
+          site-key="registrationCtrl.recaptchaKey">
+        </no-captcha>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3">Terms/policy</label>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="radio" ng-mousedown="registrationCtrl.newAppUser.readTermOfUse = !registrationCtrl.newAppUser.readTermOfUse">
+              <label><input type="radio" name="opttermofuse">Accept terms and policy</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-9 col-sm-offset-3">
+        <button type="submit" class="btn btn-primary btn-block" ng-click="registrationCtrl.goToStep(3)">Register</button>
+      </div>
+    </div><!-- /.form-group -->
+  </form> <!-- /form -->
+</div> <!-- ./container -->

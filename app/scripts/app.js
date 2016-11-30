@@ -16,5 +16,12 @@ angular
     'ngSanitize',
     'ngTouch',
     'appModules',
-    'ui.router'
-  ]);
+    'ui.router',
+    'noCAPTCHA'
+  ])
+  .config(['noCAPTCHAProvider', function (noCaptchaProvider) {
+    noCaptchaProvider.setSiteKey('6LcLWg0UAAAAAObm56SvUAW7BEfIgzmxryjWg2WN');
+    noCaptchaProvider.setTheme('dark');
+  }]);
+
+

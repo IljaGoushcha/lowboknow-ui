@@ -35,17 +35,21 @@ angular
         controller: 'RegistrationCtrl',
         controllerAs: 'registrationCtrl'
       })
-      .state('registration.one', {
-        url: '/one',
-        templateUrl: '../views/registration/registration-step-one.html'
+      .state('registration.initial', {
+        url: '/initial',
+        templateUrl: '../views/registration/registration-initial.html'
       })
-      .state('registration.two', {
-        url: '/two',
-        templateUrl: '../views/registration/registration-step-two.html'
+      .state('registration.income', {
+        url: '/income',
+        templateUrl: '../views/registration/registration-income.html'
       })
-      .state('registration.three', {
-        url: '/three',
-        templateUrl: '../views/registration/registration-step-three.html'
+      .state('registration.full', {
+        url: '/full',
+        templateUrl: '../views/registration/registration-full.html'
+      })
+      .state('registration.bar', {
+        url: '/bar',
+        templateUrl: '../views/registration/registration-bar.html'
       })
 
       .state('client', {
