@@ -13,10 +13,12 @@ angular.module('registrationModule')
     'RegistrationService',
     '$location',
     '$state',
+    'vcRecaptchaService',
     function (AuthService,
               RegistrationService,
               $location,
-              $state) {
+              $state,
+              vcRecaptchaService) {
 
 
       var vm = this;
@@ -25,7 +27,7 @@ angular.module('registrationModule')
       vm.newUserType = {};
       vm.vistiorType = 'general';
       vm.recaptchaKey = '6LcLWg0UAAAAAObm56SvUAW7BEfIgzmxryjWg2WN';
-      vm.recaptchaId = 'someid';
+      vm.recaptchaId = '';
 
       vm.onLoad = function() {
         console.log('RegistrationCtrl inside onLoad()');
@@ -45,6 +47,11 @@ angular.module('registrationModule')
           console.log('looks like we got a general visitor');
           vm.newUserType.value = 'client';
         }
+      };
+
+      vm.setRecaptchaId = function(widgetId) {
+        console.log('widgetId: ' + widgetId);
+        vm.recaptchaId = widgetId;
       };
 
       vm.login = function(user) {
@@ -80,6 +87,7 @@ angular.module('registrationModule')
             break;
           default:
             console.log('could not find proper next step');
+            console.log(vcRecaptchaService.getResponse(vm.recaptchaId));
         }
 
         console.log('AppUser: ', vm.newAppUser);
