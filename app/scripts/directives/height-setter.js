@@ -24,6 +24,7 @@ angular
         var setStyles = function() {
           el.style.display = 'block';
           el.style.border = '1px solid red';
+          el.style.overflowY = 'scroll';
           adjustedHeight = (getBrowserDimensions().height - offset);
           if (adjustedHeight >= minHeight) {
             el.style.height = adjustedHeight + 'px';

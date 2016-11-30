@@ -25,6 +25,7 @@ angular.module('registrationModule')
       vm.newAppUser = {};
       vm.newAddress = {};
       vm.newUserType = {};
+      vm.newQuestionnaire = {};
       vm.vistiorType = 'general';
       vm.recaptchaKey = '6LcLWg0UAAAAAObm56SvUAW7BEfIgzmxryjWg2WN';
       vm.recaptchaId = '';
@@ -93,6 +94,7 @@ angular.module('registrationModule')
         console.log('AppUser: ', vm.newAppUser);
         console.log('Address: ', vm.newAddress);
         console.log('UserType', vm.newUserType);
+        console.log('Questionnaire', vm.newQuestionnaire);
         console.log('go to step: ' + nextStep);
 
 

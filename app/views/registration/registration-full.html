@@ -93,6 +93,13 @@
     </div>
 
     <div class="form-group">
+      <label for="phonenumberpublic" class="col-sm-3 control-label">Phone Number Private</label>
+      <div class="col-sm-9">
+        <input type="checkbox" id="phonenumberpublic" placeholder="Phone Number" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.phoneNumberPrivate">
+      </div>
+    </div>
+
+    <div class="form-group">
       <label for="email" class="col-sm-3 control-label">Email</label>
       <div class="col-sm-9">
         <input type="text" id="email" placeholder="Email" class="form-control" autofocus ng-model="registrationCtrl.newAppUser.email">
@@ -124,7 +131,7 @@
       <div class="col-sm-6">
         <div class="row">
           <div class="col-sm-10">
-            <div class="radio" ng-mousedown="registrationCtrl.newAppUser.readTermOfUse = !registrationCtrl.newAppUser.readTermOfUse">
+            <div class="radio" ng-mousedown="registrationCtrl.newQuestionnaire.readTermOfUse = !registrationCtrl.newQuestionnaire.readTermOfUse">
               <label><input type="radio" name="opttermofuse">Accept terms and policy</label>
             </div>
           </div>
