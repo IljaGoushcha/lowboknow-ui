@@ -31,6 +31,7 @@ angular.module('registrationModule')
       vm.recaptchaKey = '6LcLWg0UAAAAAObm56SvUAW7BEfIgzmxryjWg2WN';
       vm.recaptchaId = '';
       vm.areasOfLaw = [];
+      vm.selectedAreasOfLaw = [];
 
       vm.onLoad = function() {
         console.log('RegistrationCtrl inside onLoad()');
@@ -73,7 +74,12 @@ angular.module('registrationModule')
 
       vm.register = function(user) {
         console.log(user);
-        RegistrationService.register(user);
+        // RegistrationService.register(user);
+        vm.selectedAreasOfLaw.forEach(function(areaOfLaw) {
+          delete areaOfLaw.ticked;
+          console.log(areaOfLaw);
+        });
+        console.log(vm.selectedAreasOfLaw);
       };
 
       // Need to think of better mechanism for navigation decisions

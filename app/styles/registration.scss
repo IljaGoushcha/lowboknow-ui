@@ -15,3 +15,25 @@
   }
 
 }
+
+@media (min-width: 768px) {
+  .registration-outer-div {
+    .registration-initial {
+      .line-one {
+        .col-sm-6:nth-of-type(1) {
+          .form-group {
+            border: 1px solid red;
+            padding-right: 5px;
+          }
+        }
+        .col-sm-6:nth-of-type(2) {
+          .form-group {
+            border: 1px solid green;
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -17,5 +17,6 @@ angular
     'ngTouch',
     'appModules',
     'ui.router',
-    'vcRecaptcha'
+    'vcRecaptcha',
+    'isteven-multi-select'
   ]);
