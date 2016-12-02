@@ -16,24 +16,17 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-9">
+        <label class="checkbox-inline"><input type="checkbox" ng-mousedown="registrationCtrl.questionsStatements[0].checked = !registrationCtrl.questionsStatements[0].checked">{{registrationCtrl.questionsStatements[0].value}}</label>
+      </div>
+    </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-3">Read/Verify</label>
-      <div class="col-sm-6">
-        <div class="row">
-          <div class="col-sm-10">
-            <div class="radio" ng-mousedown="registrationCtrl.newQuestionnaire.certifyFiguresAccurate = !registrationCtrl.newQuestionnaire.certifyFiguresAccurate">
-              <label><input type="radio" name="optradio1">Certify figures are accurate</label>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-10">
-            <div class="radio" ng-mousedown="registrationCtrl.newQuestionnaire.understandNotReferalService = !registrationCtrl.newQuestionnaire.understandNotReferalService">
-              <label><input type="radio" name="optradio2">Not referal service</label>
-            </div>
-          </div>
-        </div>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-9">
+        <label class="checkbox-inline"><input type="checkbox" ng-mousedown="registrationCtrl.questionsStatements[1].checked = !registrationCtrl.questionsStatements[1].checked">{{registrationCtrl.questionsStatements[1].value}}</label>
       </div>
     </div> <!-- /.form-group -->
 

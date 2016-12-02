@@ -15,12 +15,16 @@ angular.module('registrationModule')
     '$state',
     'vcRecaptchaService',
     'AreasOfLawService',
+    'QuestionsStatementsService',
+    'lodash',
     function (AuthService,
               RegistrationService,
               $location,
               $state,
               vcRecaptchaService,
-              AreasOfLawService) {
+              AreasOfLawService,
+              QuestionsStatementsService,
+              lodash) {
 
 
       var vm = this;
@@ -32,16 +36,29 @@ angular.module('registrationModule')
       vm.recaptchaId = '';
       vm.areasOfLaw = [];
       vm.selectedAreasOfLaw = [];
+      vm.questionsStatements = [];
 
       vm.onLoad = function() {
         console.log('RegistrationCtrl inside onLoad()');
         var myParams = $location.search();
+
+        // load all areas of law
         AreasOfLawService.getAreasOfLaw(function(response) {
           angular.copy(response.data, vm.areasOfLaw);
           console.log(vm.areasOfLaw);
         }, function(error) {
           console.log(error);
         });
+
+        // load all questions and statements
+        QuestionsStatementsService.getQuestionsStatements(function(response) {
+          angular.copy(response.data, vm.questionsStatements);
+          lodash.forEach(vm.questionsStatements, function(elem) {elem.checked = false;});
+          console.log(vm.questionsStatements);
+        }, function(error) {
+          console.log(error);
+        });
+
         $state.transitionTo('registration.initial');
         console.log(myParams);
         if (myParams.type && myParams.type === 'client') {
@@ -59,6 +76,7 @@ angular.module('registrationModule')
         }
       };
 
+      // This is needed to prevent reCaptcha error
       vm.setRecaptchaId = function(widgetId) {
         console.log('widgetId: ' + widgetId);
         vm.recaptchaId = widgetId;
@@ -77,9 +95,13 @@ angular.module('registrationModule')
         // RegistrationService.register(user);
         vm.selectedAreasOfLaw.forEach(function(areaOfLaw) {
           delete areaOfLaw.ticked;
-          console.log(areaOfLaw);
         });
-        console.log(vm.selectedAreasOfLaw);
+        console.log('AppUser: ', vm.newAppUser);
+        console.log('Address: ', vm.newAddress);
+        console.log('Questionnaire', vm.newQuestionnaire);
+        console.log('Selected Areas of Law', vm.selectedAreasOfLaw);
+        console.log('Questions Statements', vm.questionsStatements);
+        console.log(vcRecaptchaService.getResponse(vm.recaptchaId));
       };
 
       // Need to think of better mechanism for navigation decisions
@@ -102,14 +124,9 @@ angular.module('registrationModule')
             break;
           default:
             console.log('could not find proper next step');
-            console.log(vcRecaptchaService.getResponse(vm.recaptchaId));
         }
 
-        console.log('AppUser: ', vm.newAppUser);
-        console.log('Address: ', vm.newAddress);
-        console.log('Questionnaire', vm.newQuestionnaire);
         console.log('go to step: ' + nextStep);
-
 
         try {
           $state.transitionTo('registration.' + nextStep);

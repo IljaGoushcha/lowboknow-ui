@@ -11,7 +11,8 @@
     "angular-touch": "^1.4.0",
     "angular-ui-router": "^0.3.2",
     "angular-recaptcha": "3.0.4",
-    "isteven-angular-multiselect": "4.0.0"
+    "isteven-angular-multiselect": "4.0.0",
+    "ng-lodash": "0.5.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

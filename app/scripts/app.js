@@ -18,5 +18,6 @@ angular
     'appModules',
     'ui.router',
     'vcRecaptcha',
-    'isteven-multi-select'
+    'isteven-multi-select',
+    'ngLodash'
   ]);
