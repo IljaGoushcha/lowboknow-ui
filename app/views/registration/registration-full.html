@@ -132,7 +132,7 @@
     </div>
 
     <div class="form-group">
-      <label class="checkbox-inline"><input type="checkbox" ng-model="registrationCtrl.newQuestionnaire.readTermOfUse">Accept terms and policies?</label>
+      <label class="checkbox-inline"><input type="checkbox" ng-mousedown="registrationCtrl.questionsStatements[3].checked = !registrationCtrl.questionsStatements[3].checked">{{registrationCtrl.questionsStatements[3].value}}</label>
     </div>
 
     <div class="form-group">
