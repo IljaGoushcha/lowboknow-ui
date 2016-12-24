@@ -59,7 +59,7 @@ angular.module('registrationModule')
           console.log(error);
         });
 
-        $state.transitionTo('registration.initial');
+        $state.transitionTo('registration.type');
         console.log(myParams);
         if (myParams.type && myParams.type === 'client') {
           console.log('looks like we got a client');
@@ -82,6 +82,10 @@ angular.module('registrationModule')
         vm.recaptchaId = widgetId;
       };
 
+      vm.setUserType = function(userType) {
+        console.log('userType: ' + userType);
+      };
+
       vm.login = function(user) {
         AuthService.login(user);
       };
@@ -91,17 +95,26 @@ angular.module('registrationModule')
       };
 
       vm.register = function(user) {
-        console.log(user);
-        // RegistrationService.register(user);
         vm.selectedAreasOfLaw.forEach(function(areaOfLaw) {
           delete areaOfLaw.ticked;
         });
-        console.log('AppUser: ', vm.newAppUser);
-        console.log('Address: ', vm.newAddress);
-        console.log('Questionnaire', vm.newQuestionnaire);
-        console.log('Selected Areas of Law', vm.selectedAreasOfLaw);
-        console.log('Questions Statements', vm.questionsStatements);
-        console.log(vcRecaptchaService.getResponse(vm.recaptchaId));
+        vm.generateQuestionnaire();
+        user.address = vm.newAddress;
+        user.selectedAreasOfLaw = vm.selectedAreasOfLaw;
+        user.questionnaire = vm.newQuestionnaire;
+        user.reCaptchaResponse = vcRecaptchaService.getResponse(vm.recaptchaId);
+
+        console.log(user);
+        RegistrationService.register(user);
+      };
+
+      // this function puts all confirmed/checked questions/statements and
+      // stores them in questionnaire array. This shows what questions user
+      // agreed to
+      vm.generateQuestionnaire = function() {
+        vm.newQuestionnaire = lodash.find(vm.questionsStatements, function(elem) {
+          return elem.checked === true;
+        });
       };
 
       // Need to think of better mechanism for navigation decisions

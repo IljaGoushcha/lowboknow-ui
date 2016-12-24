@@ -51,6 +51,10 @@ angular
         url: '/bar',
         templateUrl: '../views/registration/registration-bar.html'
       })
+      .state('registration.type', {
+        url: '/type',
+        templateUrl: '../views/registration/registration-type.html'
+      })
 
       .state('client', {
         url: '/client',

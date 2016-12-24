@@ -1,6 +1,18 @@
 .registration-outer-div {
   width: 100%;
 
+  .registration-type {
+    .carousel {
+      padding: 5px;
+      .carousel-inner {
+        height: 250px;
+      }
+    }
+    .carousel:hover {
+      cursor: pointer;
+    }
+  }
+
   *[role="form"] {
     max-width: 530px;
     padding: 15px;
